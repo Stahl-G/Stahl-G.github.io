@@ -1,0 +1,161 @@
+---
+import Base from '../layouts/Base.astro';
+import T from '../components/T.astro';
+import { c } from '../i18n';
+---
+<Base
+  title="Yihong ‘Stahl’ Guo — Strategy, Research & AI Workflows"
+  description="Yihong ‘Stahl’ Guo works across strategy, investor communications, research, and accountable AI workflows. Creator of BriefLoop."
+>
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="kicker reveal"><T t={c.hero.kicker} /></p>
+        <h1 class="reveal"><T t={c.hero.titleA} /><span class="grad"><T t={c.hero.titleB} /></span></h1>
+        <p class="lead reveal"><T t={c.hero.lead} /></p>
+        <div class="actions reveal">
+          <a class="button primary" href="https://briefloop.ai"><T t={c.hero.primaryCta} /><span class="arrow">→</span></a>
+          <a class="button ghost" href="#work"><T t={c.hero.secondaryCta} /><span class="arrow">↓</span></a>
+        </div>
+        <ul class="credentials reveal">
+          {c.hero.credentials.map((cred) => <li><T t={cred} /></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-grid">
+      <div class="section-head reveal">
+        <p class="kicker"><T t={c.about.kicker} /></p>
+        <h2><T t={c.about.title} /></h2>
+        <figure class="about-portrait">
+          <img src="/assets/portrait.webp" alt="Portrait of Yihong ‘Stahl’ Guo" width="1280" height="1545" />
+        </figure>
+      </div>
+      <div class="about-copy reveal">
+        {c.about.paragraphs.map((p) => <p><T t={p} /></p>)}
+      </div>
+    </div>
+  </section>
+
+  <section id="work" class="section">
+    <div class="section-head wide reveal">
+      <p class="kicker"><T t={c.work.kicker} /></p>
+      <h2><T t={c.work.title} /></h2>
+    </div>
+
+    <article class="briefloop reveal">
+      <div class="briefloop-index">{c.work.briefloop.index}</div>
+      <div class="briefloop-body">
+        <p class="card-label"><T t={c.work.briefloop.label} /></p>
+        <div class="briefloop-head">
+          <svg class="briefloop-logo" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="7" fill="#05351d" />
+            <path d="M8.2 13a8.3 8.3 0 0 1 13.3-4.1M20 6.8l2.1 2.4-3.1.9M23.8 19a8.3 8.3 0 0 1-13.3 4.1M12 25.2l-2.1-2.4 3.1-.9" fill="none" stroke="#4faf62" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <rect x="13" y="13" width="6" height="6" rx="1.3" fill="none" stroke="#f2f5f1" stroke-width="1.6" />
+            <path d="M14.5 16h3" stroke="#f2f5f1" stroke-width="1.4" stroke-linecap="round" />
+          </svg>
+          <h3>{c.work.briefloop.name}</h3>
+        </div>
+        <p class="body"><T t={c.work.briefloop.body} /></p>
+        <div class="links">
+          <a href="https://briefloop.ai"><T t={c.work.briefloop.visit} /> <span class="arrow">→</span></a>
+          <a href="https://github.com/Stahl-G/briefloop"><T t={c.work.briefloop.github} /> <span class="arrow">→</span></a>
+        </div>
+      </div>
+      <div class="ledger">
+        {c.work.briefloop.ledger.map(([label, value]) => (
+          <div><span>{label}</span><strong>{value}</strong></div>
+        ))}
+      </div>
+    </article>
+
+    <div class="experience reveal">
+      <h3 class="subhead"><T t={c.work.experience.title} /></h3>
+      {c.work.experience.rows.map((row) => (
+        <article class="row">
+          <p class="period"><T t={row.period} /></p>
+          <div>
+            <p class="company"><T t={row.company} /></p>
+            <h4><T t={row.role} /></h4>
+            <p class="desc"><T t={row.desc} /></p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="background" class="section">
+    <div class="section-head wide reveal">
+      <p class="kicker"><T t={c.background.kicker} /></p>
+      <h2><T t={c.background.title} /></h2>
+    </div>
+    <div class="background-grid">
+      <div class="reveal">
+        <h3 class="subhead"><T t={c.background.education.title} /></h3>
+        <ol class="timeline">
+          {c.background.education.items.map((item) => (
+            <li>
+              <span class="year">{item.year}</span>
+              <div>
+                <strong><T t={item.school} /></strong>
+                <p><T t={item.degree} /></p>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="language-panel reveal">
+        <h3 class="subhead"><T t={c.background.languages.title} /></h3>
+        <ul>
+          {c.background.languages.items.map((item) => (
+            <li><b>{item.num}</b><span><T t={item.label} /></span></li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="frames" class="section frames">
+    <div class="frames-line reveal">
+      <p class="kicker"><T t={c.frames.kicker} /></p>
+      <p class="frames-meta"><T t={c.frames.meta} /></p>
+    </div>
+    <div class="frames-intro">
+      <h2 class="reveal"><T t={c.frames.title} /></h2>
+      <p class="reveal"><T t={c.frames.intro} /></p>
+    </div>
+    <div class="gallery-grid reveal">
+      {c.frames.gallery.map((item) => (
+        <article class:list={['gallery-item', { wide: item.wide }]}>
+          <a href={`/assets/gallery/${item.file}.webp`} data-lightbox>
+            <img loading="lazy" src={`/assets/gallery/${item.file}.webp`} alt={item.alt} />
+            <div class="gallery-meta">
+              <span>{item.category}</span>
+              <strong><T t={item.title} /></strong>
+            </div>
+          </a>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <p class="kicker reveal"><T t={c.contact.kicker} /></p>
+    <h2 class="reveal"><T t={c.contact.title} /></h2>
+    <p class="lead reveal"><T t={c.contact.lead} /></p>
+    <div class="links contact-links reveal">
+      <a href="mailto:contact@briefloop.ai">contact@briefloop.ai <span class="arrow">↗</span></a>
+      <a href="https://github.com/Stahl-G">GitHub <span class="arrow">→</span></a>
+      <a href="https://briefloop.ai">BriefLoop <span class="arrow">→</span></a>
+    </div>
+  </section>
+
+  <dialog id="lightbox" aria-label="Image viewer">
+    <button class="lightbox-close" type="button" aria-label="Close">×</button>
+    <img src="" alt="" />
+    <div class="lightbox-caption"></div>
+  </dialog>
+</Base>

@@ -1,0 +1,10 @@
+---
+import type { Bilingual } from '../i18n';
+
+interface Props {
+  t: Bilingual;
+}
+
+const { t } = Astro.props;
+---
+<span class="en">{t.en}</span><span class="zh">{t.zh}</span>
